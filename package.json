@@ -1,0 +1,20 @@
+{
+  "name": "anvitha-backend",
+  "version": "1.0.0",
+  "description": "This is particularly made to host the images for different gallery options and later on we will be adding different functionalities ",
+  "license": "ISC",
+  "author": "Nikhil Singh",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "imagekit": "^6.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
