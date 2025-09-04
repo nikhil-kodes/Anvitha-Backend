@@ -7,15 +7,15 @@ export const getPhoto = async (req, res, next) => {
 	});
 	try {
 		const limit = 24;
-		const skip = 0;
+		const skip = parseInt(req.query.skip);
 		const response = await imagekit.listFiles({
 			path: process.env.FOLDER1,
-           limit,
-		   skip
+			limit,
+			skip,
 		});
 		res.json({
 			data: response,
-			hasMore: response.length === limit
+			hasMore: response.length === limit,
 		});
 	} catch (error) {
 		res.status(500).json({ error: error.message });
