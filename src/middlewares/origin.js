@@ -1,8 +1,15 @@
 export const origin = (req, res, next) => {
-	const allowedOrigin = "https://anvithaclubglbajaj.netlify.app";
-	const origin = req.headers.origin;
+	const allowedOrigins = [
+		"https://anvithaclubglbajaj.netlify.app",
+		"http://localhost:3000",
+		"http://localhost:5173",
+		"http://172.19.80.1:8080",
+		"http://192.168.29.203:8080",
+	];
 
-	if (origin && origin !== allowedOrigin) {
+	const requestOrigin = req.headers.origin;
+
+	if (requestOrigin && !allowedOrigins.includes(requestOrigin)) {
 		return res.status(403).json({ error: "Forbidden" });
 	}
 
