@@ -6,11 +6,17 @@ export const getPhoto = async (req, res, next) => {
 		urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 	});
 	try {
+		const limit = 24;
+		const skip = 0;
 		const response = await imagekit.listFiles({
 			path: process.env.FOLDER1,
-            limit: 24
+           limit,
+		   skip
 		});
-		res.json(response);
+		res.json({
+			data: response,
+			hasMore: response.length === limit
+		});
 	} catch (error) {
 		res.status(500).json({ error: error.message });
 	}
